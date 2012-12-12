@@ -18,6 +18,11 @@ test_that("Error on missing dependencies", {
   unload("import-missing")
 })
 
+test_that("Packages in depends are required", {
+  load_all("depends")
+  expect_true("package:MASS" %in% search())
+  unload("depends")
+})
 
 test_that("Parse dependencies", {
   deps <- parse_deps("\nhttr (< 2.1),\nRCurl (>= 3),\nutils (== 2.12.1),\ntools,\nR (>= 2.10),\nmemoise")

@@ -6,7 +6,7 @@ load_depends <- function(pkg = ".") {
   if (is.null(deps) || nrow(deps) == 0) return(invisible())
 
   mapply(check_dep_version, deps$name, deps$version, deps$compare)
-  lapply(require, deps$name, character.only = TRUE)
+  lapply(deps$name, require, character.only = TRUE)
 
   invisible(deps)
 }
