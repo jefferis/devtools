@@ -11,6 +11,7 @@
 #'   prior to documenting.  This is important because \pkg{roxygen2} uses
 #'   introspection on the code objects to determine how to document them.
 #' @keywords programming
+#' @importFrom digest digest
 #' @export
 document <- function(pkg = ".", clean = FALSE, roclets = c("collate", "namespace", "rd"), reload = TRUE) {
   require("roxygen2")
